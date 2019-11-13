@@ -14,10 +14,10 @@ const handlerFunction = async (event, context, callback) => {
         '#active': 'active'
       }
     };
-    const users = await docClient.scan(options).promise();
+    const user = await docClient.scan(options).promise();
     const result = {
       statusCode: 200,
-      body: users.Items,
+      body: JSON.stringify(user.Items),
       headers: { 'content-type': 'application/json' }
     };
 
