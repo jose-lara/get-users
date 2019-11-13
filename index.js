@@ -5,7 +5,7 @@ const docClient = new AWS.DynamoDB.DocumentClient();
 const handlerFunction = async (event, context, callback) => {
   try {
     const options = {
-      TableName: 'user',
+      TableName: 'User',
       FilterExpression: '#active = :active',
       ExpressionAttributeValues: {
         ':active': true
@@ -17,7 +17,7 @@ const handlerFunction = async (event, context, callback) => {
     const user = await docClient.scan(options).promise();
     const result = {
       statusCode: 200,
-      body: JSON.stringify(user.Items),
+      body: user.Items,
       headers: { 'content-type': 'application/json' }
     };
 
