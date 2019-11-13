@@ -40,17 +40,6 @@ Resources:
           Properties:
             Path: /api/get-users
             Method: get
-  UserTable:
-    Type: AWS::DynamoDB::Table
-    Properties:
-      TableName: User
-      AttributeDefinitions:
-        - AttributeName: userId
-          AttributeType: S
-      KeySchema:
-        - AttributeName: userId
-          KeyType: HASH
-      BillingMode: PAY_PER_REQUEST
 
   LambdaExecutionRole:
     Description: Creating service role in IAM for AWS Lambda
