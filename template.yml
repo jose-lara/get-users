@@ -40,6 +40,8 @@ Resources:
           Properties:
             Path: /api/get-users
             Method: get
+      Layers:
+        - DynamoRequestLayer
 
   LambdaExecutionRole:
     Description: Creating service role in IAM for AWS Lambda
